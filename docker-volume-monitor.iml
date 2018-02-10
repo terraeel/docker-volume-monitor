@@ -2,8 +2,14 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 2.7 (flaske_test)" jdkType="Python SDK" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/venv1" />
+      <excludeFolder url="file://$MODULE_DIR$/venv2" />
+      <excludeFolder url="file://$MODULE_DIR$/venv3" />
+      <excludeFolder url="file://$MODULE_DIR$/venv4" />
+      <excludeFolder url="file://$MODULE_DIR$/venv5" />
+    </content>
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
