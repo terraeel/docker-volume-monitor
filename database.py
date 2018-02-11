@@ -16,8 +16,8 @@ def create_db():
         table = '''CREATE TABLE  volumes(
         id INTEGER PRIMARY KEY,
         DATETIME DEFAULT (STRFTIME('%d-%m-%Y   %H:%M', 'NOW','localtime')),
-                name TEXT NOT NULL,
-                size INTEGER)'''
+        name TEXT NOT NULL,
+        size INTEGER)'''
         c.execute(table)
     return True
 

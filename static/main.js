@@ -10,11 +10,13 @@ function drawChart() {
 
         $.each( volumes, function( index, element ) {
             dataTable.addRow([element[2],element[3]]);
+            console.log('My array has at position ' + index + ', this value: ' + element);
         });
 
         var options = {
-            title: 'Company Performance',
-            hAxis: {title: 'Id', titleTextStyle: {color: 'red'}}
+            title: 'Volumes Size',
+            hAxis: {title: 'Id', titleTextStyle: {color: 'red'}},
+            sliceVisibilityThreshold:0
         };
 
         chart = new google.visualization.PieChart(document.getElementById('piechart'));
