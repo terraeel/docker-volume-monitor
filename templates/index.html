@@ -1,32 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hodden</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
-</head>
-<body>
 
-<div class="container">
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
-</div>
 
-<script src="http://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+{% include "header.html" %}
+{% block body %}
+<body class="body">
+    <div class="container">
+        <div id="piechart" style="width: 900px; height: 500px;"></div>
+    </div>
 
-<script type="text/javascript">
-    function ajaxCall() {
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-    }
-    ajaxCall();
-    setInterval(ajaxCall, 30000); //300000 MS == 5 minutes
-</script>
 
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+        function ajaxCall() {
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+        }
+        ajaxCall();
+        setInterval(ajaxCall, 30000); //300000 MS == 5 minutes
+    </script>
 </body>
+{% endblock %}
+
 </html>

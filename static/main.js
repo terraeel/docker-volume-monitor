@@ -10,7 +10,6 @@ function drawChart() {
 
         $.each( volumes, function( index, element ) {
             dataTable.addRow([element[2],element[3]]);
-            console.log('Array data: ' + element);
         });
 
         var options = {
