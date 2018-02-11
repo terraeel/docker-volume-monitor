@@ -22,9 +22,13 @@
 
 
 <script type="text/javascript">
+    setInterval(ajaxCall, 3000); //300000 MS == 5 minutes
 
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+    function ajaxCall() {
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+    }
+
 
 </script>
 <script type="text/javascript">

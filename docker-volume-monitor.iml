@@ -9,7 +9,7 @@
       <excludeFolder url="file://$MODULE_DIR$/venv4" />
       <excludeFolder url="file://$MODULE_DIR$/venv5" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (docker-volume-monitor)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
