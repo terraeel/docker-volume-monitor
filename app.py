@@ -1,6 +1,5 @@
 import sqlite3
-import data
-import database
+from lib import data, database
 from flask import Flask, render_template, json
 
 
