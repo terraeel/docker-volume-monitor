@@ -10,9 +10,12 @@
 <div class="container">
     <div id="piechart" style="width: 900px; height: 500px;"></div>
 </div>
+<script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-
 <script type="text/javascript">
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
@@ -20,9 +23,11 @@
     function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-            ['Volume', 'Size Mb'],
-            ['Volume D1',     600],
-            ['Volume D2',      500]
+            ['Task', 'Hours per Day'],
+            ['Eat',      2],
+            ['Commute',  2],
+            ['Watch TV', 2],
+            ['Sleep',    7]
         ]);
 
         var options = {
@@ -33,6 +38,21 @@
 
         chart.draw(data, options);
     }
+
+    var url = 'http://127.0.0.1:5000/api/volumes';
+    var data = {
+        q: 'search',
+        text: 'my text'
+    };
+    $.getJSON( url, { name: "test3"} )
+        .done(function( json ) {
+            console.log( "JSON Data: " + json );
+        })
+        .fail(function( jqxhr, textStatus, error ) {
+            var err = textStatus + ", " + error;
+            console.log( "Request Failed: " + err );
+        });
+
 </script>
 <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.js"></script>
