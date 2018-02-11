@@ -1,6 +1,6 @@
 function drawChart() {
 
-    var url = 'http://localhost:5000/api/volumes/all';
+    var url = 'http://localhost:5000/api/volumes';
     $.getJSON(url, { get_param: 'value' }, function(volumes) {
         dataTable = new google.visualization.DataTable();
 
