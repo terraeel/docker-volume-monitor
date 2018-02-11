@@ -1,6 +1,6 @@
 function drawChart() {
 
-    var url = 'http://127.0.0.1:5000/api/volumes';
+    var url = 'http://localhost:5000/api/volumes/all';
     $.getJSON(url, { get_param: 'value' }, function(volumes) {
         dataTable = new google.visualization.DataTable();
 
@@ -10,7 +10,7 @@ function drawChart() {
 
         $.each( volumes, function( index, element ) {
             dataTable.addRow([element[2],element[3]]);
-            console.log('My array has at position ' + index + ', this value: ' + element);
+            console.log('Array data: ' + element);
         });
 
         var options = {
