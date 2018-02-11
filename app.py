@@ -1,5 +1,5 @@
 from db.dataAccess import dbAccess
-from flask import Flask, render_template, json
+from flask import Flask, render_template, json, request
 
 
 app = Flask(__name__)
@@ -10,10 +10,14 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/api/volumes', methods=['GET'])
+@app.route('/api/volumes', methods=['GET', 'POST'])
 def collection():
-    volumes = dbAccess.get_all_volumes()
-    return json.dumps(volumes)
+    if request.method == 'GET':
+        volumes = dbAccess.get_all_volumes_current_value()
+        return json.dumps(volumes)
+    elif request.method == 'POST':
+        dbAccess.publish_data()
+        return 'Success'
 
 
 @app.route('/api/volumes/<string:name>', methods=['GET'])

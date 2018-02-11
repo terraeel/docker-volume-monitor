@@ -4,8 +4,14 @@ import time
 
 
 def get_all_volumes():
+    with sqlite3.connect('volumes.db') as connection:
+        cursor = connection.cursor()
+        cursor.execute('''select * from volumes ORDER BY DATETIME''')
+        all_volumes = cursor.fetchall()
+        return all_volumes
 
-    # publish_data()
+
+def get_all_volumes_current_value():
     with sqlite3.connect('volumes.db') as connection:
         cursor = connection.cursor()
         cursor.execute('''
@@ -21,8 +27,6 @@ def get_all_volumes():
 
 
 def get_volume_by_name(volume_name):
-
-    # publish_data()
     with sqlite3.connect('volumes.db') as connection:
         cursor = connection.cursor()
         cursor.execute('''select * from volumes WHERE name = ? ORDER BY DATETIME''', (volume_name,))
@@ -30,8 +34,23 @@ def get_volume_by_name(volume_name):
         return all_volumes
 
 
-def publish_data():
+def get_volume_by_id(volume_id):
+    with sqlite3.connect('volumes.db') as connection:
+        cursor = connection.cursor()
+        cursor.execute('''select * from volumes WHERE id = ?''', (volume_id,))
+        all_volumes = cursor.fetchall()
+        return all_volumes
 
+
+def get_volume_by_time(start, end):
+    with sqlite3.connect('volumes.db') as connection:
+        cursor = connection.cursor()
+        cursor.execute('''select * from volumes where DATETIME  between ? and ? ''', (start, end,))
+        all_volumes = cursor.fetchall()
+        return all_volumes
+
+
+def publish_data():
     conn = sqlite3.connect('volumes.db')
     c = conn.cursor()
     client = docker.from_env()
@@ -45,7 +64,6 @@ def publish_data():
 
 
 if __name__ == '__main__':
-
     while True:
         publish_data()
         time.sleep(30)
