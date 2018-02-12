@@ -3,7 +3,6 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/venv1" />
       <excludeFolder url="file://$MODULE_DIR$/venv2" />
       <excludeFolder url="file://$MODULE_DIR$/venv3" />
       <excludeFolder url="file://$MODULE_DIR$/venv4" />
