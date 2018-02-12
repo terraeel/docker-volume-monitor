@@ -14,8 +14,13 @@ function drawChart() {
 
         var options = {
             title: 'Volumes Size',
-            hAxis: {title: 'Id', titleTextStyle: {color: 'red'}},
-            sliceVisibilityThreshold:0
+            sliceVisibilityThreshold:0,
+            backgroundColor: { fill: "#263238" },
+            legendTextStyle: { color: '#FFF' },
+            titleTextStyle: { color: '#FFF' },
+            hAxis: {
+                color: '#FFF',
+            }
         };
 
         chart = new google.visualization.PieChart(document.getElementById('piechart'));
