@@ -1,7 +1,7 @@
 function drawChart() {
 
     var url = 'http://localhost:5000/api/volumes';
-    $.getJSON(url, { get_param: 'value' }, function(volumes) {
+    $.getJSON(url, function(volumes) {
         dataTable = new google.visualization.DataTable();
 
         var newData = [['Id','Time','Name','Size']];
