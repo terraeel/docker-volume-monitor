@@ -62,8 +62,3 @@ def publish_data():
     conn.commit()
     conn.close()
 
-
-if __name__ == '__main__':
-    while True:
-        publish_data()
-        time.sleep(30)

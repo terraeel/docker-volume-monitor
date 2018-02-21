@@ -1,7 +1,7 @@
 from db.dataAccess import dbAccess
+from moonitor import container
 from flask import Flask, render_template, jsonify, request, json
 import requests
-
 app = Flask(__name__, static_folder="./static", template_folder="./templates")
 
 
@@ -29,5 +29,13 @@ def collection_name(name):
     return json.dumps(volume)
 
 
+@app.route('/api/containers', methods=['GET'])
+def collection_conainer():
+    c = container.Containers()
+    return json.dumps(c.get_container_attrs())
+
+
 if __name__ == '__main__':
-    app.run(host='localhost', threaded=True, port=5000)
+    app.run(host='localhost', port=5000)
+
+
